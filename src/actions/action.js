@@ -47,11 +47,15 @@ const loadUASuccess = (data) => {
     }
 }
 
-export const loadUA = () => {
+export const loadUA = (axios) => {
     return dispatch => {
         dispatch(loadUARequest())
         axios.get('http://httpbin.org/user-agent')
         .then(({data}) => dispatch(loadUASuccess(data)))
         .catch(() => dispatch(loadUAError()))
     }
+}
+
+export default {
+    loadUA: loadUA.bind(null, axios)
 }
