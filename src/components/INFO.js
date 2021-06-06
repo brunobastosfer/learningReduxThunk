@@ -13,15 +13,15 @@ class INFO extends React.Component {
     if(this.props.error) {
       return <span>Ocorreu um erro!</span>
     }
-    return <span>INFO: {this.props.data.origin}</span>
+    return <div><span>INFO: {this.props.data.origin}</span></div>
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    isFetching: state.isFetching,
-    data: state.data,
-    error: state.error
+    isFetching: state.ip.isFetching,
+    data: state.ip.data,
+    error: state.ip.error
   }
 }
 

@@ -5,16 +5,18 @@ import { Provider } from 'react-redux';
 import { logger } from 'redux-logger'
 import thunk from 'redux-thunk'
 
-import { reducer } from './reducer/reducer'
+import index from './reducer/index';
 import INFO from './components/INFO'
+import UserAgent from './components/UserAgent';
 
-const store = createStore(reducer, applyMiddleware(thunk, logger))
+const store = createStore(index, applyMiddleware(thunk, logger))
 
 class App extends React.Component {
   render() {
     return (
     <Provider store={store}>
       <INFO />
+      <UserAgent />
     </Provider>
     );
   }
